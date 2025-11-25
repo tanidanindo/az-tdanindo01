@@ -70,7 +70,18 @@ variable "key_permissions" {
 variable "secret_permissions" {
   type        = list(string)
   description = "List of secret permissions."
-  default     = ["Set"]
+  default     = ["Set", "Delete", "Get", "List", "Purge", "Recover"]
+}
+
+variable "certificate_permissions" {
+  type        = list(string)
+  description = "List of certificate permissions."
+  default     = ["Get", "List", "Delete", "Create", "Import", "Update", "ManageContacts", "ManageIssuers", "GetIssuers", "ListIssuers", "SetIssuers", "DeleteIssuers"]
+}
+variable "key_size" {
+  type        = number
+  description = "The size in bits of the key to be created."
+  default     = 2048
 }
 
 variable "key_type" {

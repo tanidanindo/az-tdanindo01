@@ -7,10 +7,11 @@ resource "azurerm_key_vault" "vault" {
   soft_delete_retention_days = 7
 
   access_policy {
-    tenant_id          = var.tenant_id
-    object_id          = var.object_id
-    key_permissions    = var.key_permissions
-    secret_permissions = var.secret_permissions
+    tenant_id               = var.tenant_id
+    object_id               = var.object_id
+    key_permissions         = var.key_permissions
+    secret_permissions      = var.secret_permissions
+    certificate_permissions = var.certificate_permissions
   }
 }
 
@@ -38,4 +39,5 @@ resource "azurerm_key_vault_key" "key" {
     expire_after         = "P90D"
     notify_before_expiry = "P29D"
   }
+
 }
