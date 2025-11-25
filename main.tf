@@ -21,6 +21,4 @@ output "resource_group_location" {
 output "resource_group_tags" {
   value = azurerm_resource_group.rg.tags
 }
-output "resource_group_subscription_id" {
-  value = azurerm_resource_group.rg.subscription_id
-}
+
