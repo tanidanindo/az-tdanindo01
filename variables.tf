@@ -78,11 +78,6 @@ variable "certificate_permissions" {
   description = "List of certificate permissions."
   default     = ["Get", "List", "Delete", "Create", "Import", "Update", "ManageContacts", "ManageIssuers", "GetIssuers", "ListIssuers", "SetIssuers", "DeleteIssuers"]
 }
-variable "key_size" {
-  type        = number
-  description = "The size in bits of the key to be created."
-  default     = 2048
-}
 
 variable "key_type" {
   description = "The JsonWebKeyType of the key to be created."
