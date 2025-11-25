@@ -1,9 +1,14 @@
 variable "resource_group_location" {
   type        = string
-  default     = "eastus"
+  default     = "west us 2"
   description = "Location of the resource group."
 }
 
+variable "location" {
+  description = "The Azure region where resources will be deployed."
+  type        = string
+  default     = "West US 2"
+}
 variable "resource_group_name_prefix" {
   type        = string
   default     = "rg"
