@@ -8,11 +8,7 @@ resource "random_integer" "rg_suffix" {
   min = 2
   max = 3
 }
-data "azurerm_client_config" "current" {
-  tenant_id       = var.tenant_id
-  object_id       = var.object_id
-  subscription_id = var.subscription_id
-}
+
 output "resource_group_name" {
   value = azurerm_resource_group.rg.name
 }
