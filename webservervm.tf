@@ -24,8 +24,13 @@ resource "azurerm_network_interface" "vm_nic" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.vm_public_ip.id # Associates the Public IP
   }
-} # --- 3. Boot Diagnostics Storage Account ---
-# This is required for enabling boot diagnostics, which is highly recommended.
+}
+
+resource "azurerm_network_interface_security_group_association" "nic_nsg_associate" {
+  network_interface_id      = azurerm_network_interface.vm_nic.id
+  network_security_group_id = azurerm_network_security_group.nsg01.id
+}
+
 resource "azurerm_storage_account" "bootdiag_sa" {
   name                     = "vmdiags${lower(replace(resource.azurerm_resource_group.rg.name, "-", ""))}" # Unique name required
   resource_group_name      = resource.azurerm_resource_group.rg.name
