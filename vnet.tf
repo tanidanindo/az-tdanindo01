@@ -8,7 +8,7 @@ resource "azurerm_network_security_group" "nsg01" {
 resource "azurerm_network_security_rule" "allow_rdp_specific_ips" {
   # Association with the NSG
   resource_group_name         = azurerm_resource_group.rg.name
-  network_security_group_name = azurerm_network_security_group.custom_nsg.name
+  network_security_group_name = azurerm_network_security_group.nsg01.name
 
   name                   = "Allow_RDP_Specific"
   priority               = 100
@@ -27,7 +27,7 @@ resource "azurerm_network_security_rule" "allow_rdp_specific_ips" {
 resource "azurerm_network_security_rule" "allow_web_traffic" {
   # Association with the NSG
   resource_group_name         = azurerm_resource_group.rg.name
-  network_security_group_name = azurerm_network_security_group.custom_nsg.name
+  network_security_group_name = azurerm_network_security_group.nsg01.name
 
   name              = "Allow_HTTP_HTTPS_All"
   priority          = 110 # Priority 110 is lower than 100, evaluated second
